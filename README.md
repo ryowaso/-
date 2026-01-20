@@ -94,26 +94,35 @@ o	智能服务：通过AI工具（如queryNewsByKeyword、queryProductByName）�
 - 数据存储层：MySQL存储业务数据，Redis缓存会话与热点数据，本地文件系统存储上传文件
 - 外部服务集成：OpenAI/DeepSeek大模型接口、支付宝支付接口、邮件服务
 功能框架图
- 
+ <img width="951" height="821" alt="image" src="https://github.com/user-attachments/assets/907b7779-2815-4700-88ba-709d0f4abea4" />
+
 2系统核心功能模块设计2.1 AI交互模块流程图（PUML）
- 
+ <img width="729" height="1312" alt="image" src="https://github.com/user-attachments/assets/e475e974-c8a6-4ac4-9ec6-6dda79c30b55" />
+
 时序图
- 
+ <img width="916" height="631" alt="image" src="https://github.com/user-attachments/assets/46d7f484-3b22-4258-8e44-f60c84dc3580" />
+
 2.2 支付集成模块
 流程图
- 
+ <img width="466" height="1230" alt="image" src="https://github.com/user-attachments/assets/e9d094f1-ec88-41d9-bcd4-2747e6bfe76c" />
+
 时序图
- 
+ <img width="917" height="845" alt="image" src="https://github.com/user-attachments/assets/6407a476-143a-4bcc-bb3a-692696756c77" />
+
 2.3 文件服务模块（补充）
 流程图
- 
+ <img width="671" height="1196" alt="image" src="https://github.com/user-attachments/assets/d3354987-ec25-40d5-b721-e859cf7e13e2" />
+
 时序图
- 
+ <img width="946" height="606" alt="image" src="https://github.com/user-attachments/assets/c9b65a47-d9ca-4f3f-8b12-165ab0d77610" />
+
 2.4 景点管理模块（补充）
 流程图
- 
+ <img width="756" height="1248" alt="image" src="https://github.com/user-attachments/assets/09a64fa7-d882-4a57-9eaf-6848088b1bd2" />
+
 时序图
- 
+ <img width="920" height="705" alt="image" src="https://github.com/user-attachments/assets/5ba5c6d0-f869-4b35-a96f-095e031eca23" />
+
 3. 数据库设计
 3.1 数据库模型设计描述
 本系统采用MySQL 8.0作为关系型数据库，存储引擎为InnoDB（支持事务和外键约束），字符集统一使用utf8mb4（支持 emoji 表情）。设计遵循以下原则：
@@ -122,21 +131,29 @@ o	智能服务：通过AI工具（如queryNewsByKeyword、queryProductByName）�
 - 所有表包含时间戳字段（create_time/update_time），记录数据生命周期
 - 通过外键关联核心业务实体（如用户、景点、资讯等），保证数据一致性
 - 对高频查询字段建立索引（如session_id、user_id、status等）
- 
+ <img width="851" height="353" alt="image" src="https://github.com/user-attachments/assets/00d301f1-4f4e-4c31-8357-d59f557f4a66" />
+
 用户表实体图
- 
+ <img width="851" height="353" alt="image" src="https://github.com/user-attachments/assets/6bfa0f4f-4bc0-4b09-bc19-2849e3d39a83" />
+
 新农人故事表实体图
- 
+ <img width="851" height="353" alt="image" src="https://github.com/user-attachments/assets/01bf5677-6962-46e5-9169-333cc2a01c4b" />
+
 资讯表实体图
- 
+ <img width="851" height="353" alt="image" src="https://github.com/user-attachments/assets/38587a0a-185d-4ad7-a103-5f218c31cdb9" />
+
 农产品实体图
- 
+ <img width="851" height="353" alt="image" src="https://github.com/user-attachments/assets/2ee9a85b-9475-449a-b5a0-1918d684334e" />
+
 景点实体图
- 
+ <img width="851" height="353" alt="image" src="https://github.com/user-attachments/assets/42bb4e26-507d-4540-addc-9206a71c2fcf" />
+
 景点评价实体图
- 
+ <img width="851" height="353" alt="image" src="https://github.com/user-attachments/assets/ea3c37f7-2fa9-4951-bad9-38526109fc2e" />
+
 资讯评论实体图
- 
+ <img width="851" height="353" alt="image" src="https://github.com/user-attachments/assets/9538aa56-f04d-4a20-986d-1bd7cf5c5a61" />
+
 用户收藏实体图
 3.2 数据库表结构设计
 3.2.1 用户表（user）
@@ -523,7 +540,8 @@ src/
 │   ├── Echarts/          # 可视化图表组件
 3.2 核心页面实现
 3.2.1 首页（前台核心）
- 
+ <img width="898" height="430" alt="image" src="https://github.com/user-attachments/assets/127c82dc-a089-4589-ba0b-36fe2aab2967" />
+
 •	功能：首页主图图展示热门景点/农产品、新农人故事推荐、AI交互入口、政策资讯汇总；
 •	核心组件：
 o	主图：Element Plus的ElCarousel组件；
@@ -536,6 +554,7 @@ o	卡片列表：自定义ScenicCard/ProductCard组件，支持懒加载；
         <img :src="item.imageUrl" alt="" class="banner-img">
       </el-carousel-item>
     </el-carousel>
+<img width="898" height="430" alt="image" src="https://github.com/user-attachments/assets/2b963f55-57d4-4d93-a90d-ad640f865ffa" />
 
          <div class="scenic-section">
       <h2 class="section-title">热门乡村景点</h2>
@@ -597,7 +616,8 @@ onMounted(() => {
 }
 </style>
 3.2.2 数据可视化页面（后台核心）
- 
+ <img width="898" height="430" alt="image" src="https://github.com/user-attachments/assets/679bf606-d00c-45b6-9e78-ea3c029aeb13" />
+
 <template>
   <div class="data-container">
     <!-- 筛选条件 -->
